@@ -1,5 +1,5 @@
 import streamlit
-import requests
+#import requests
 import pandas
 import snowflake.connector
 from urllib.error import URLError
@@ -23,3 +23,6 @@ def get_fruityvise_data(this_fruit_choice):
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     return fruityvise_normalized
 #New Section to display fruityvise api response
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response)
